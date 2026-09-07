@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Understanding HTTP Request Analysis — Writeups | NIKHIL.SEC</title>
+<meta name="description" content="Exploring HTTP request/response behavior and common security testing methodology for web applications.">
+<link rel="canonical" href="https://example.com/writeups/web-security.html">
+<meta property="og:title" content="Understanding HTTP Request Analysis | NIKHIL.SEC">
+<meta property="og:description" content="Exploring HTTP request/response behavior and common security testing methodology.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="writeups">
+
+<canvas id="bgcanvas"></canvas>
+<div class="grid-overlay"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo"><span class="dot"></span>NIKHIL<span class="dim">.SEC</span></a>
+    <nav class="links" id="navLinks">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../writeups.html" class="active">Writeups</a>
+      <a href="../research.html">Research</a>
+      <a href="../lab.html">Lab</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../index.html" class="resume-link" target="_blank" rel="noopener">Resume ↗</a>
+    </nav>
+    <a href="../contact.html" class="nav-cta">Contact Me</a>
+    <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">Home</a>
+    <a href="../about.html">About</a>
+    <a href="../projects.html">Projects</a>
+    <a href="../writeups.html" class="active">Writeups</a>
+    <a href="../research.html">Research</a>
+    <a href="../lab.html">Lab</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../index.html" target="_blank" rel="noopener">Resume ↗</a>
+  </div>
+</header>
+
+<main>
+<header class="page-header wrap">
+  <a href="../writeups.html" class="back-link">← Back to Writeups</a>
+  <h1>Understanding HTTP Request Analysis</h1>
+</header>
+
+<section class="section" style="border-top:none; padding-top:48px;">
+  <div class="wrap">
+    <div class="article-meta">
+      <span><b>Category</b> Web Security</span>
+      <span><b>Date</b> Feb 2026</span>
+      <span><b>Reading Time</b> 8 min</span>
+    </div>
+
+    <div class="article-body">
+      <div class="notice-box"><b>Scope note:</b> All examples in this writeup are framed for authorized labs, CTF environments, or systems the reader has explicit permission to test.</div>
+
+      <h2>Introduction</h2>
+      <p>Nearly every web security assessment starts in the same place: watching how a browser and server actually talk to each other. Before looking for a specific bug class, it helps to build a habit of reading requests and responses closely — headers, status codes, and body content all carry information that's easy to skim past.</p>
+
+      <h2>Background</h2>
+      <p>An HTTP request is more than a URL. Method, headers, cookies, and body parameters each shape how the server behaves, and small inconsistencies between what a client sends and what a server expects are often where interesting behavior shows up — redirects that leak internal paths, headers that reveal a framework version, or parameters that behave differently than the UI suggests.</p>
+
+      <h2>Methodology</h2>
+      <p>A simple, repeatable approach for early-stage request analysis:</p>
+      <ul>
+        <li>Capture a baseline: walk through normal application flows with an intercepting proxy running</li>
+        <li>Note every distinct endpoint, method, and parameter observed</li>
+        <li>Compare authenticated vs. unauthenticated requests to the same endpoint</li>
+        <li>Watch response headers as closely as response bodies — caching, framework, and security headers all matter</li>
+      </ul>
+
+      <h2>Technical Analysis</h2>
+      <p>Using Burp Suite (or an equivalent proxy) to intercept traffic makes this process concrete. A basic check against a lab target might look like this:</p>
+      <div class="code-block">
+<div class="line"><span class="prompt">$</span> curl -I https://lab.target.example</div>
+<div class="line">HTTP/1.1 200 OK</div>
+<div class="line">Server: nginx/1.18.0</div>
+<div class="line">X-Powered-By: Express</div>
+<div class="line"><span class="comment"># framework and server version disclosed in headers</span></div>
+      </div>
+      <p>Response headers here already reveal the web server and backend framework — useful context before deciding what testing approach fits the target. From there, comparing how the same endpoint responds to different methods (GET vs. POST vs. OPTIONS) or different Accept headers can surface unexpected behavior, such as an endpoint that's meant to be internal-only but still responds to external requests.</p>
+
+      <h2>Observations</h2>
+      <p>In authorized lab environments, this kind of close reading regularly surfaces low-hanging findings: verbose error messages, inconsistent access control between HTTP methods on the same route, and headers that disclose more than intended. None of these require advanced tooling — just a habit of actually reading what's being sent and returned.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>The biggest lesson has been patience: rushing to run automated scanners before understanding an application's normal request patterns tends to miss context that would otherwise stand out immediately. Manual analysis first, automation second.</p>
+
+      <h2>Conclusion</h2>
+      <p>HTTP request analysis is a foundational skill that pays off across almost every other web security testing technique. Building the habit of reading requests and responses carefully — before reaching for a scanner — remains one of the highest-value things a beginner researcher can practice.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand"><b>Nikhil Bashyal</b> — Cybersecurity Enthusiast · Security Researcher · Python Automation</div>
+      <div class="footer-tag">© 2026 · built for the field, not the demo</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/on-nick" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/nikhil-bashyal" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:bashyalnikhil@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

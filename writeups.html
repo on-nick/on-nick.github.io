@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writeups — Nikhil Bashyal | NIKHIL.SEC</title>
+<meta name="description" content="Technical writeups, experiments, and lessons learned in web security, network security, OSINT, and bug hunting.">
+<link rel="canonical" href="https://example.com/writeups.html">
+<meta property="og:title" content="Writeups — Nikhil Bashyal | NIKHIL.SEC">
+<meta property="og:description" content="Technical writeups, experiments, and lessons learned.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="writeups">
+
+<canvas id="bgcanvas"></canvas>
+<div class="grid-overlay"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="dot"></span>NIKHIL<span class="dim">.SEC</span></a>
+    <nav class="links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="writeups.html" class="active">Writeups</a>
+      <a href="research.html">Research</a>
+      <a href="lab.html">Lab</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html" class="resume-link" target="_blank" rel="noopener">Resume ↗</a>
+    </nav>
+    <a href="contact.html" class="nav-cta">Contact Me</a>
+    <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="writeups.html" class="active">Writeups</a>
+    <a href="research.html">Research</a>
+    <a href="lab.html">Lab</a>
+    <a href="contact.html">Contact</a>
+    <a href="index.html" target="_blank" rel="noopener">Resume ↗</a>
+  </div>
+</header>
+
+<main>
+<header class="page-header wrap">
+  <div class="eyebrow">Writeups</div>
+  <h1>Security Research Notes</h1>
+  <p class="lead">Technical writeups, experiments, and lessons learned.</p>
+</header>
+
+<section class="section" style="border-top:none; padding-top:64px;">
+  <div class="wrap">
+    <div class="filter-row reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Web Security</button>
+      <button class="filter-btn" data-filter="network">Network Security</button>
+      <button class="filter-btn" data-filter="osint">OSINT</button>
+      <button class="filter-btn" data-filter="bughunting">Bug Hunting</button>
+    </div>
+
+    <div class="cards-grid">
+      <div class="article-card reveal" data-category="web">
+        <span class="cat-tag">Web Security</span>
+        <h3>Understanding HTTP Request Analysis</h3>
+        <p>Exploring HTTP request/response behavior and common security testing methodology.</p>
+        <div class="card-foot">
+          <span>8 min read</span>
+          <a href="writeups/web-security.html" class="read-link">Read Writeup →</a>
+        </div>
+      </div>
+
+      <div class="article-card reveal" data-category="network">
+        <span class="cat-tag">Network Security</span>
+        <h3>Analyzing Network Traffic with Wireshark</h3>
+        <p>A practical look at packet inspection and protocol analysis.</p>
+        <div class="card-foot">
+          <span>10 min read</span>
+          <a href="writeups/network-security.html" class="read-link">Read Writeup →</a>
+        </div>
+      </div>
+
+      <!-- <div class="article-card reveal" data-category="network">
+        <span class="cat-tag">Network Security</span>
+        <h3>30-Day Networking Mastery Roadmap</h3>
+        <p>A complete 30-day structured roadmap to build networking depth for cyber and cloud security work.</p>
+        <div class="card-foot">
+          <span>Long-form guide</span>
+          <a href="writeups/networking-mastery-roadmap.html" class="read-link">Read Writeup →</a>
+        </div>
+      </div> -->
+
+      <div class="article-card reveal" data-category="osint">
+        <span class="cat-tag">OSINT</span>
+        <h3>Domain Reconnaissance Methodology</h3>
+        <p>A structured approach to discovering domains, subdomains, endpoints, and exposed assets.</p>
+        <div class="card-foot">
+          <span>9 min read</span>
+          <a href="writeups/osint.html" class="read-link">Read Writeup →</a>
+        </div>
+      </div>
+
+      <div class="article-card reveal" data-category="bughunting">
+        <span class="cat-tag">Bug Hunting</span>
+        <h3>From Reconnaissance to Responsible Disclosure</h3>
+        <p>A practical methodology for organizing reconnaissance and vulnerability research.</p>
+        <div class="card-foot">
+          <span>11 min read</span>
+          <a href="writeups/bug-hunting.html" class="read-link">Read Writeup →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand"><b>Nikhil Bashyal</b> — Cybersecurity Enthusiast · Security Researcher · Python Automation</div>
+      <div class="footer-tag">© 2026 · built for the field, not the demo</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/on-nick" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/nikhil-bashyal" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:bashyalnikhil@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

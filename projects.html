@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Nikhil Bashyal | NIKHIL.SEC</title>
+  <meta name="description"
+    content="Security tools, automation projects, and engineering experiments by Nikhil Bashyal, including SnapVault and ScopeDork.">
+  <link rel="canonical" href="https://example.com/projects.html">
+  <meta property="og:title" content="Projects — Nikhil Bashyal | NIKHIL.SEC">
+  <meta property="og:description" content="Security tools, automation projects, and engineering experiments.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body data-page="projects">
+
+  <canvas id="bgcanvas"></canvas>
+  <div class="grid-overlay"></div>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><span class="dot"></span>NIKHIL<span class="dim">.SEC</span></a>
+      <nav class="links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="writeups.html">Writeups</a>
+        <a href="research.html">Research</a>
+        <a href="lab.html">Lab</a>
+        <a href="contact.html">Contact</a>
+        <a href="" class="resume-link" target="_blank" rel="noopener">Resume ↗</a>
+      </nav>
+      <a href="contact.html" class="nav-cta">Contact Me</a>
+      <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false"
+        aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="writeups.html">Writeups</a>
+      <a href="research.html">Research</a>
+      <a href="lab.html">Lab</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html" target="_blank" rel="noopener">Resume ↗</a>
+    </div>
+  </header>
+
+  <main>
+
+    <header class="page-header wrap">
+      <div class="eyebrow">Projects</div>
+      <h1>Selected Builds</h1>
+      <p class="lead">Security tools, automation projects, and engineering experiments.</p>
+    </header>
+
+    <section class="section" style="border-top:none; padding-top:80px;">
+      <div class="wrap">
+        <div class="projects-grid">
+          <div class="project-card reveal">
+            <div class="project-top">
+              <span class="project-cat">Python / Incident Response</span>
+              <h3>Incident Detection & Response Simulator</h3>
+              <p>
+                Python-based security simulation platform that generates and analyzes realistic security incidents,
+                detects suspicious activity using rule-based detection logic, assigns severity, and simulates the
+                incident-response lifecycle from detection and triage to containment, eradication, recovery, and
+                closure.
+              </p>
+            </div>
+
+            <div class="project-tags">
+              <span>Python</span>
+              <span>Threat Detection</span>
+              <span>Security Automation</span>
+              <span>Threat Simulation</span>
+              
+            </div>
+
+            <div class="project-actions">
+              <a href="projects/ids.html">View Case Study →</a>
+              <a href="https://github.com/on-nick/Incident-Response-Simulator.git" target="_blank" rel="noopener">
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+          <div class="project-card reveal">
+            <div class="project-top">
+              <span class="project-cat">Python / Automation / Backup</span>
+              <h3>SnapVault</h3>
+              <p>Automated mobile-to-USB backup tool in Python that detects concurrent device connections and initiates
+                offline synchronization.</p>
+            </div>
+            <div class="project-tags">
+              <span>Python</span><span>Automation</span><span>Device Detection</span><span>Offline
+                Sync</span><span>Backup Workflow</span>
+            </div>
+            <div class="project-actions">
+              <a href="projects/snapvault.html">View Case Study →</a>
+              <a href="https://github.com/on-nick/SnapVault" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-top">
+              <span class="project-cat">OSINT / Reconnaissance / Automation</span>
+              <h3>ScopeDork</h3>
+              <p>Automated OSINT and reconnaissance tool that generates targeted Google and GitHub dorks for a domain to
+                reveal potentially exposed files, endpoints, and credentials.</p>
+            </div>
+            <div class="project-tags">
+              <span>Python</span><span>OSINT</span><span>Reconnaissance</span><span>Search Automation</span><span>Google
+                Dorks</span><span>GitHub Dorks</span>
+            </div>
+            <div class="project-actions">
+              <a href="projects/scopedork.html">View Case Study →</a>
+              <a href="https://github.com/on-nick/ScopeDork" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+
+
+          <div class="project-card placeholder reveal">
+            <div class="project-top">
+              <span class="project-cat">03 / In Development</span>
+              <h3>Future Security Tool</h3>
+              <p>A new security automation project is currently being developed. Details will be published here once the
+                tool reaches a working state.</p>
+              <span class="status experimental" style="margin-top:6px;">Status: Building</span>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>
+        <div class="footer-brand"><b>Nikhil Bashyal</b> — Cybersecurity Enthusiast · Security Researcher · Python
+          Automation</div>
+        <div class="footer-tag">© 2026 · built for the field, not the demo</div>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/on-nick" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/nikhil-bashyal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:bashyalnikhil@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

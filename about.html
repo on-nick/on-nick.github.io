@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Nikhil Bashyal | NIKHIL.SEC</title>
+<meta name="description" content="About Nikhil Bashyal — B.Sc. CSIT student at Bhairahawa Multiple Campus, cybersecurity enthusiast, and independent security researcher focused on network security and Python automation.">
+<link rel="canonical" href="https://example.com/about.html">
+<meta property="og:title" content="About — Nikhil Bashyal | NIKHIL.SEC">
+<meta property="og:description" content="B.Sc. CSIT student, cybersecurity enthusiast, and independent security researcher focused on network security and Python automation.">
+<meta property="og:type" content="profile">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="about">
+
+<canvas id="bgcanvas"></canvas>
+<div class="grid-overlay"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="dot"></span>NIKHIL<span class="dim">.SEC</span></a>
+    <nav class="links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="writeups.html">Writeups</a>
+      <a href="research.html">Research</a>
+      <a href="lab.html">Lab</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html" class="resume-link" target="_blank" rel="noopener">Resume ↗</a>
+    </nav>
+    <a href="contact.html" class="nav-cta">Contact Me</a>
+    <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="writeups.html">Writeups</a>
+    <a href="research.html">Research</a>
+    <a href="lab.html">Lab</a>
+    <a href="contact.html">Contact</a>
+    <a href="index.html" target="_blank" rel="noopener">Resume ↗</a>
+  </div>
+</header>
+
+<main>
+
+<header class="page-header wrap">
+  <div class="eyebrow">About</div>
+  <h1>Nikhil Bashyal</h1>
+  <p class="lead">Cybersecurity Enthusiast · Independent Security Researcher · Python Automation Developer</p>
+</header>
+
+<section class="section" id="profile" style="border-top:none; padding-top:80px;">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <img src="assets/images/aboutme.png" alt="Nikhil Bashyal">
+      </div>
+      <div class="about-copy reveal">
+        <div class="eyebrow">Profile</div>
+        <p>I'm a <strong>B.Sc. CSIT student at Bhairahawa Multiple Campus</strong>, currently pursuing my degree while building practical experience in cybersecurity outside the classroom. My interest in the field started with networking fundamentals — understanding how systems actually communicate — and grew into a focus on where that communication breaks down or gets misused.</p>
+        <p>Since <strong>January 2022</strong>, I've worked independently as a security researcher and bug hunter, conducting reconnaissance and security assessments on web applications and infrastructure within authorized program scopes. I spend most of my time on <strong>web application security, network security, and Python-based security automation</strong> — building small tools that make reconnaissance, log analysis, and testing workflows faster and more repeatable.</p>
+        <p>I'm still early in this path. I don't overstate what I've done — the work below reflects where I actually am: a student researcher building real skills through authorized testing, self-directed labs, and continuous learning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="education">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Education</div>
+      <h2>Academic background.</h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-head">
+          <h3>B.Sc. CSIT</h3>
+          <span class="tl-period">IN PROGRESS</span>
+        </div>
+        <div class="tl-org">Bhairahawa Multiple Campus</div>
+        <p style="color:var(--text-dim); font-size:15px; margin-bottom:14px;">Focus areas relevant to security and systems work:</p>
+        <ul class="tl-list">
+          <li>Computer Science fundamentals — algorithms, data structures, software engineering</li>
+          <li>Networking — TCP/IP, routing, protocol behavior</li>
+          <li>Database Systems — relational design, SQL, query optimization</li>
+          <li>Operating Systems — process management, systems-level fundamentals</li>
+          <li>Security — introductory coursework applied alongside independent research</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="interests">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Areas of Interest</div>
+      <h2>Where I focus my attention.</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal"><span class="service-index">01 / WEB SECURITY</span><h3>Web Security</h3><p>Application-layer testing methodology — request flows, access control, and common vulnerability classes.</p></div>
+      <div class="service-card reveal"><span class="service-index">02 / NETWORK SECURITY</span><h3>Network Security</h3><p>Protocol behavior, packet-level inspection, and how traffic patterns reveal misconfiguration.</p></div>
+      <div class="service-card reveal"><span class="service-index">03 / OSINT</span><h3>OSINT</h3><p>Structured reconnaissance — discovering domains, subdomains, and exposed assets before deeper testing.</p></div>
+      <div class="service-card reveal"><span class="service-index">04 / SECURITY AUTOMATION</span><h3>Security Automation</h3><p>Turning repetitive recon and analysis steps into reliable Python tooling.</p></div>
+      <div class="service-card reveal"><span class="service-index">05 / VULNERABILITY RESEARCH</span><h3>Vulnerability Research</h3><p>Understanding root causes, not just symptoms — and writing findings up clearly.</p></div>
+      <div class="service-card reveal"><span class="service-index">06 / PYTHON TOOLING</span><h3>Python Tooling</h3><p>Small, purpose-built scripts over heavyweight frameworks — built to solve one problem well.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="stack">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Technical Stack</div>
+      <h2>Tools &amp; technologies.</h2>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-cat">
+        <h3>Security</h3>
+        <div class="cat-note">// testing &amp; analysis tools</div>
+        <div class="badge-row">
+          <span class="badge">Nmap</span>
+          <span class="badge">Burp Suite</span>
+          <span class="badge">Wireshark</span>
+          <span class="badge">OWASP Methodology</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>Programming</h3>
+        <div class="cat-note">// languages &amp; scripting</div>
+        <div class="badge-row">
+          <span class="badge">Python</span>
+          <span class="badge">SQL</span>
+          <span class="badge">Bash</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>Networking</h3>
+        <div class="cat-note">// protocols</div>
+        <div class="badge-row">
+          <span class="badge">TCP/IP</span>
+          <span class="badge">DNS</span>
+          <span class="badge">HTTP / HTTPS</span>
+          <span class="badge">DHCP</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>Systems</h3>
+        <div class="cat-note">// environments</div>
+        <div class="badge-row">
+          <span class="badge">Linux</span>
+          <span class="badge">Windows</span>
+          <span class="badge">Virtualization</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="learning">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Currently Learning</div>
+      <h2>Building on the fundamentals.</h2>
+      <p>What I'm actively studying right now — updated as it changes.</p>
+    </div>
+    <div class="info-cards three-up">
+      <div class="info-card reveal"><div class="ic-icon">📡</div><div class="ic-title">Advanced Protocol Analysis</div><div class="ic-sub">Deepening packet-level investigation with Wireshark</div></div>
+      <div class="info-card reveal"><div class="ic-icon">🔍</div><div class="ic-title">Access Control Testing</div><div class="ic-sub">Structured methodology for IDOR &amp; authorization flaws</div></div>
+      <div class="info-card reveal"><div class="ic-icon">🐍</div><div class="ic-title">Python for Security Tooling</div><div class="ic-sub">Building more resilient, reusable recon scripts</div></div>
+    </div>
+    <!-- <div class="notice-box reveal" style="margin-top:30px;">
+      <b>Note:</b> [ADD YOUR CERTIFICATION] — this space is reserved for certifications once completed. No certifications are claimed at this time.
+    </div> -->
+  </div>
+</section>
+
+<section class="section" id="resume">
+  <div class="wrap" style="text-align:center;">
+    <div class="eyebrow" style="justify-content:center;">Resume</div>
+    <h2 class="reveal" style="margin-bottom:20px;">Want the short version?</h2>
+    <p class="reveal" style="color:var(--text-dim); max-width:480px; margin:0 auto 32px;">A one-page summary of education, skills, and research experience.</p>
+    <a href="index.html" class="btn btn-primary reveal" target="_blank" rel="noopener">Download Resume ↗</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand"><b>Nikhil Bashyal</b> — Cybersecurity Enthusiast · Security Researcher · Python Automation</div>
+      <div class="footer-tag">© 2026 · built for the field, not the demo</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/on-nick" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/nikhil-bashyal" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:bashyalnikhil@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

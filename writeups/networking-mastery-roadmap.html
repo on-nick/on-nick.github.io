@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30-Day Networking Mastery Roadmap — Writeups | NIKHIL.SEC</title>
+<meta name="description" content="A structured 30-day networking roadmap for cybersecurity and cloud security professionals.">
+<link rel="canonical" href="https://example.com/writeups/networking-mastery-roadmap.html">
+<meta property="og:title" content="30-Day Networking Mastery Roadmap | NIKHIL.SEC">
+<meta property="og:description" content="A structured 30-day networking roadmap for cybersecurity and cloud security professionals.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .article-body{
+    max-width:880px;
+    border:1px solid var(--border);
+    background:linear-gradient(180deg, rgba(32,26,20,0.35) 0%, rgba(24,20,15,0.75) 100%);
+    padding:32px;
+  }
+  .article-body > h1{
+    font-size:32px;
+    margin-top:0;
+    margin-bottom:14px;
+    letter-spacing:-0.02em;
+  }
+  .article-body > h2:first-of-type{
+    margin-top:0;
+  }
+  .article-body h2{
+    font-size:25px;
+    margin-top:34px;
+    margin-bottom:12px;
+    line-height:1.25;
+    letter-spacing:-0.015em;
+  }
+  .article-body h3{
+    font-size:18px;
+    margin-top:20px;
+    margin-bottom:8px;
+    line-height:1.35;
+  }
+  .article-body p{
+    color:var(--text-dim);
+    font-size:16px;
+    line-height:1.72;
+    margin-bottom:12px;
+  }
+  .article-body strong{color:var(--text);}
+  .article-body em{color:var(--text-dim);}
+  .article-body hr{
+    border:none;
+    border-top:1px solid var(--border-strong);
+    margin:24px 0;
+  }
+  .article-body ol{
+    margin:0 0 18px 0;
+    padding-left:22px;
+    color:var(--text-dim);
+  }
+  .article-body ol li{
+    margin:0 0 10px 0;
+    font-size:15.5px;
+    line-height:1.75;
+  }
+  .article-body ul{
+    margin:0 0 14px 0;
+  }
+  .article-body ul li{
+    position:relative;
+    padding-left:22px;
+    color:var(--text-dim);
+    font-size:15.5px;
+    line-height:1.68;
+    margin-bottom:6px;
+  }
+  .article-body ul li::before{
+    content:"•";
+    position:absolute;
+    left:0;
+    top:0;
+    color:var(--accent);
+    font-size:15px;
+  }
+  .article-body ul li.task-item{
+    padding-left:0;
+    display:grid;
+    grid-template-columns:14px 1fr;
+    align-items:start;
+    gap:8px;
+  }
+  .article-body ul li.task-item::before{display:none;}
+  .article-body ul li.task-item::after{
+    content:"";
+    grid-column:1;
+    grid-row:1;
+    width:10px;
+    height:10px;
+    margin-top:7px;
+    border:1px solid var(--border-strong);
+    background:rgba(201,135,63,0.1);
+  }
+  .article-body ul li.task-item.task-checked::after{
+    background:var(--accent);
+    border-color:var(--accent);
+  }
+  .article-body pre{
+    background:var(--bg-alt);
+    border:1px solid var(--border-strong);
+    font-family:var(--mono);
+    font-size:13.5px;
+    color:var(--text-dim);
+    padding:20px 22px;
+    margin:20px 0;
+    overflow-x:auto;
+    line-height:1.8;
+  }
+  .article-body code{
+    font-family:var(--mono);
+    background:rgba(201,135,63,0.12);
+    border:1px solid rgba(201,135,63,0.22);
+    padding:1px 6px;
+    font-size:13px;
+  }
+  .article-body pre code{
+    background:none;
+    border:none;
+    padding:0;
+    font-size:inherit;
+  }
+  .article-body .day-block{
+    border-top:1px solid var(--border-strong);
+    padding:18px 0 6px;
+    margin:14px 0;
+  }
+  .article-body .day-block.is-first-day{border-top:none; padding-top:8px;}
+  .article-body .day-block h2{
+    margin-top:0;
+    margin-bottom:8px;
+    font-size:22px;
+  }
+  .article-body .day-block h3{margin-top:16px;}
+  .article-body .intro-block{
+    border:1px solid var(--border);
+    background:rgba(16,14,12,0.28);
+    padding:14px 16px 10px;
+    margin-bottom:10px;
+  }
+  .article-body .intro-block h2{
+    margin-top:0;
+    margin-bottom:10px;
+    font-size:20px;
+  }
+  @media (max-width:900px){
+    .article-body{padding:22px;}
+    .article-body h2{font-size:22px;}
+    .article-body .day-block{padding:14px 0 4px;}
+  }
+</style>
+</head>
+<body data-page="writeups">
+
+<canvas id="bgcanvas"></canvas>
+<div class="grid-overlay"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo"><span class="dot"></span>NIKHIL<span class="dim">.SEC</span></a>
+    <nav class="links" id="navLinks">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../writeups.html" class="active">Writeups</a>
+      <a href="../research.html">Research</a>
+      <a href="../lab.html">Lab</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../index.html" class="resume-link" target="_blank" rel="noopener">Resume ↗</a>
+    </nav>
+    <a href="../contact.html" class="nav-cta">Contact Me</a>
+    <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">Home</a>
+    <a href="../about.html">About</a>
+    <a href="../projects.html">Projects</a>
+    <a href="../writeups.html" class="active">Writeups</a>
+    <a href="../research.html">Research</a>
+    <a href="../lab.html">Lab</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../index.html" target="_blank" rel="noopener">Resume ↗</a>
+  </div>
+</header>
+
+<main>
+<header class="page-header wrap">
+  <a href="../writeups.html" class="back-link">← Back to Writeups</a>
+  <h1>30-Day Networking Mastery Roadmap</h1>
+</header>
+
+<section class="section" style="border-top:none; padding-top:48px;">
+  <div class="wrap">
+    <div class="article-meta">
+      <span><b>Category</b> Network Security</span>
+      <span><b>Duration</b> 30 Days</span>
+      <span><b>Study Time</b> 3–4 hrs/day</span>
+    </div>
+
+    <div class="article-body" id="markdownArticle" aria-live="polite" aria-busy="true"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand"><b>Nikhil Bashyal</b> — Cybersecurity Enthusiast · Security Researcher · Python Automation</div>
+      <div class="footer-tag">© 2026 · built for the field, not the demo</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/on-nick" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/nikhil-bashyal" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:bashyalnikhil@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  const markdownArticle = document.getElementById("markdownArticle");
+  const markdownPath = "./30-day-networking-mastery-roadmap.md";
+
+  fetch(markdownPath)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to load markdown content.");
+      }
+      return response.text();
+    })
+    .then((markdownText) => {
+      markdownArticle.innerHTML = marked.parse(markdownText, {
+        gfm: true,
+        breaks: false,
+        headerIds: false,
+        mangle: false
+      });
+
+      markdownArticle.querySelectorAll("li > input[type='checkbox']").forEach((checkbox) => {
+        const parent = checkbox.closest("li");
+        if (parent) {
+          parent.classList.add("task-item");
+          if (checkbox.checked) {
+            parent.classList.add("task-checked");
+          }
+        }
+        checkbox.remove();
+      });
+
+      const dayHeadingRegex = /^Day\s+\d+\s+—/;
+      const dayHeadings = Array.from(markdownArticle.querySelectorAll("h2"))
+        .filter((heading) => dayHeadingRegex.test((heading.textContent || "").trim()));
+
+      if (dayHeadings.length > 0) {
+        const introBlock = document.createElement("section");
+        introBlock.className = "intro-block";
+        markdownArticle.insertBefore(introBlock, dayHeadings[0]);
+
+        let cursor = introBlock.nextElementSibling;
+        while (cursor && !(cursor.tagName === "H2" && dayHeadingRegex.test((cursor.textContent || "").trim()))) {
+          const next = cursor.nextElementSibling;
+          introBlock.appendChild(cursor);
+          cursor = next;
+        }
+      }
+
+      dayHeadings.forEach((heading) => {
+        const dayBlock = document.createElement("section");
+        dayBlock.className = "day-block";
+        heading.parentNode.insertBefore(dayBlock, heading);
+
+        let cursor = heading;
+        while (cursor) {
+          const next = cursor.nextElementSibling;
+          if (next && next.tagName === "H2" && dayHeadingRegex.test((next.textContent || "").trim())) {
+            dayBlock.appendChild(cursor);
+            break;
+          }
+          dayBlock.appendChild(cursor);
+          cursor = next;
+        }
+      });
+
+      const allDayBlocks = markdownArticle.querySelectorAll(".day-block");
+      if (allDayBlocks.length > 0) {
+        allDayBlocks[0].classList.add("is-first-day");
+      }
+
+      markdownArticle.querySelectorAll("hr").forEach((separator) => {
+        separator.remove();
+      });
+    })
+    .catch((error) => {
+      markdownArticle.innerHTML = '<div class="notice-box"><b>Error:</b> Could not load roadmap content.</div>';
+      console.error(error);
+    })
+    .finally(() => {
+      markdownArticle.setAttribute("aria-busy", "false");
+    });
+</script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

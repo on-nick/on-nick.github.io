@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security Lab — Nikhil Bashyal | NIKHIL.SEC</title>
+<meta name="description" content="A controlled environment for learning, testing, and experimentation — lab architecture, tools, and experiments.">
+<link rel="canonical" href="https://example.com/lab.html">
+<meta property="og:title" content="Security Lab | NIKHIL.SEC">
+<meta property="og:description" content="A controlled environment for learning, testing, and experimentation.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="lab">
+
+<canvas id="bgcanvas"></canvas>
+<div class="grid-overlay"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="dot"></span>NIKHIL<span class="dim">.SEC</span></a>
+    <nav class="links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="writeups.html">Writeups</a>
+      <a href="research.html">Research</a>
+      <a href="lab.html" class="active">Lab</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html" class="resume-link" target="_blank" rel="noopener">Resume ↗</a>
+    </nav>
+    <a href="contact.html" class="nav-cta">Contact Me</a>
+    <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="writeups.html">Writeups</a>
+    <a href="research.html">Research</a>
+    <a href="lab.html" class="active">Lab</a>
+    <a href="contact.html">Contact</a>
+    <a href="index.html" target="_blank" rel="noopener">Resume ↗</a>
+  </div>
+</header>
+
+<main>
+<header class="page-header wrap">
+  <div class="eyebrow">Security Lab</div>
+  <h1>A Controlled Environment for Learning, Testing, and Experimentation</h1>
+</header>
+
+<section class="section" id="environment" style="border-top:none; padding-top:64px;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Lab Environment</div>
+      <h2>How it's structured.</h2>
+      <p>An isolated virtual network kept separate from any production system — every experiment on this site happens here first.</p>
+    </div>
+
+    <div class="diagram reveal">
+      <div class="diagram-box"><div class="box-title">Attack VM</div><div class="box-sub">Kali Linux</div></div>
+      <div class="diagram-connector"></div>
+      <div class="diagram-box"><div class="box-title">Lab Network</div><div class="box-sub">Isolated virtual subnet</div></div>
+      <div class="diagram-connector"></div>
+      <div class="diagram-branch">
+        <div class="diagram-branch-col">
+          <div class="diagram-connector"></div>
+          <div class="diagram-box"><div class="box-title">Ubuntu Server</div><div class="box-sub">Target VM</div></div>
+        </div>
+        <div class="diagram-branch-col">
+          <div class="diagram-connector"></div>
+          <div class="diagram-box"><div class="box-title">Windows Test VM</div><div class="box-sub">Target VM</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="notice-box reveal" style="max-width:640px; margin:36px auto 0;">
+      <b>Scope:</b> This network has no route to the public internet by default and no connection to any production system. All testing here is self-contained.
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tools">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Tools</div>
+      <h2>What's in the toolbox.</h2>
+    </div>
+    <div class="tool-grid reveal">
+      <div class="tool-card"><div class="tool-name">NMAP</div><div class="tool-desc">Network discovery &amp; port scanning</div></div>
+      <div class="tool-card"><div class="tool-name">WIRESHARK</div><div class="tool-desc">Packet capture &amp; analysis</div></div>
+      <div class="tool-card"><div class="tool-name">BURP SUITE</div><div class="tool-desc">Web security testing</div></div>
+      <div class="tool-card"><div class="tool-name">PYTHON</div><div class="tool-desc">Automation &amp; tooling</div></div>
+      <div class="tool-card"><div class="tool-name">GIT</div><div class="tool-desc">Version control</div></div>
+      <div class="tool-card"><div class="tool-name">LINUX</div><div class="tool-desc">Security environment</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="experiments">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Lab Experiments</div>
+      <h2>Ongoing &amp; completed work.</h2>
+    </div>
+    <div class="reveal">
+      <div class="exp-row">
+        <span class="exp-num">01</span>
+        <span class="exp-title">DNS Traffic Analysis</span>
+        <span class="status completed">Completed</span>
+      </div>
+      <div class="exp-row">
+        <span class="exp-num">02</span>
+        <span class="exp-title">HTTP Request Analysis</span>
+        <span class="status active">Active</span>
+      </div>
+      <div class="exp-row">
+        <span class="exp-num">03</span>
+        <span class="exp-title">Python Recon Automation</span>
+        <span class="status active">Active</span>
+      </div>
+      <div class="exp-row">
+        <span class="exp-num">04</span>
+        <span class="exp-title">Network Enumeration Lab</span>
+        <span class="status planned">Planned</span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand"><b>Nikhil Bashyal</b> — Cybersecurity Enthusiast · Security Researcher · Python Automation</div>
+      <div class="footer-tag">© 2026 · built for the field, not the demo</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/on-nick" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/nikhil-bashyal" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:bashyalnikhil@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

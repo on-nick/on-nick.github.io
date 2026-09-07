@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security Research — Nikhil Bashyal | NIKHIL.SEC</title>
+<meta name="description" content="Vulnerability research, web application behavior, access control, attack surface analysis, and security testing methodology.">
+<link rel="canonical" href="https://example.com/research/security-research.html">
+<meta property="og:title" content="Security Research | NIKHIL.SEC">
+<meta property="og:description" content="Vulnerability research, web application behavior, and security testing methodology.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="research">
+
+<canvas id="bgcanvas"></canvas>
+<div class="grid-overlay"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo"><span class="dot"></span>NIKHIL<span class="dim">.SEC</span></a>
+    <nav class="links" id="navLinks">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../writeups.html">Writeups</a>
+      <a href="../research.html" class="active">Research</a>
+      <a href="../lab.html">Lab</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../index.html" class="resume-link" target="_blank" rel="noopener">Resume ↗</a>
+    </nav>
+    <a href="../contact.html" class="nav-cta">Contact Me</a>
+    <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">Home</a>
+    <a href="../about.html">About</a>
+    <a href="../projects.html">Projects</a>
+    <a href="../writeups.html">Writeups</a>
+    <a href="../research.html" class="active">Research</a>
+    <a href="../lab.html">Lab</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../index.html" target="_blank" rel="noopener">Resume ↗</a>
+  </div>
+</header>
+
+<main>
+<header class="page-header wrap">
+  <a href="../research.html" class="back-link">← Back to Research</a>
+  <div class="eyebrow">01 / Security Research</div>
+  <h1>Vulnerability Research &amp; Testing Methodology</h1>
+  <p class="lead">How I approach web application behavior, access control, and attack surface analysis.</p>
+</header>
+
+<section class="section" style="border-top:none; padding-top:64px;">
+  <div class="wrap">
+    <div class="article-body">
+      <h2>Focus areas</h2>
+      <ul>
+        <li>Access control failure patterns — how object-level and function-level authorization breaks in practice</li>
+        <li>Web application attack surface mapping — systematically identifying what's actually testable on a target</li>
+        <li>Input handling behavior — how applications process, validate, and reflect user-controlled data</li>
+        <li>Security testing methodology — structuring an assessment so nothing important gets skipped</li>
+      </ul>
+
+      <h2>Current work</h2>
+      <div class="cards-grid" style="margin-top:20px;">
+        <div class="research-card">
+          <div class="rc-head"><h4>Access Control Failure Patterns</h4><span class="status active">Active</span></div>
+          <p>Building a personal reference of the ways broken object-level authorization tends to show up in real applications — inconsistent ID checks, role confusion between endpoints, and trust placed in client-supplied identifiers.</p>
+        </div>
+        <div class="research-card">
+          <div class="rc-head"><h4>Web Application Attack Surface Mapping</h4><span class="status experimental">Experimental</span></div>
+          <p>Testing a more structured process for cataloging an application's full surface — every endpoint, parameter, and role combination — before starting deeper vulnerability testing.</p>
+        </div>
+      </div>
+
+      <div class="notice-box" style="margin-top:36px;"><b>Note:</b> This page tracks methodology and process, not disclosed findings. Specific vulnerabilities found during authorized engagements are reported directly to the affected program, not published here.</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand"><b>Nikhil Bashyal</b> — Cybersecurity Enthusiast · Security Researcher · Python Automation</div>
+      <div class="footer-tag">© 2026 · built for the field, not the demo</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/on-nick" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/nikhil-bashyal" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:bashyalnikhil@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

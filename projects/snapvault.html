@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SnapVault — Project Case Study | NIKHIL.SEC</title>
+<meta name="description" content="SnapVault — an automated mobile-to-USB backup tool in Python that detects concurrent device connections and initiates offline synchronization.">
+<link rel="canonical" href="https://example.com/projects/snapvault.html">
+<meta property="og:title" content="SnapVault — Project Case Study | NIKHIL.SEC">
+<meta property="og:description" content="Automated mobile-to-USB backup tool in Python with concurrent device detection and offline sync.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="projects">
+
+<canvas id="bgcanvas"></canvas>
+<div class="grid-overlay"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo"><span class="dot"></span>NIKHIL<span class="dim">.SEC</span></a>
+    <nav class="links" id="navLinks">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../projects.html" class="active">Projects</a>
+      <a href="../writeups.html">Writeups</a>
+      <a href="../research.html">Research</a>
+      <a href="../lab.html">Lab</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../index.html" class="resume-link" target="_blank" rel="noopener">Resume ↗</a>
+    </nav>
+    <a href="../contact.html" class="nav-cta">Contact Me</a>
+    <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">Home</a>
+    <a href="../about.html">About</a>
+    <a href="../projects.html" class="active">Projects</a>
+    <a href="../writeups.html">Writeups</a>
+    <a href="../research.html">Research</a>
+    <a href="../lab.html">Lab</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../index.html" target="_blank" rel="noopener">Resume ↗</a>
+  </div>
+</header>
+
+<main>
+<header class="page-header wrap">
+  <a href="../projects.html" class="back-link">← Back to Projects</a>
+  <div class="eyebrow">Project 01</div>
+  <h1>SnapVault</h1>
+  <p class="lead">An automated offline backup workflow for mobile devices — detect, connect, sync, done.</p>
+</header>
+
+<section class="section" style="border-top:none; padding-top:64px;">
+  <div class="wrap">
+    <div class="article-meta">
+      <span><b>Category</b> Python / Automation / Backup</span>
+      <span><b>Status</b> Working prototype</span>
+    </div>
+    <div class="project-tags" style="padding:0; margin-bottom:40px;">
+      <span>Python</span><span>Automation</span><span>Device Detection</span><span>Offline Sync</span><span>Backup Workflow</span>
+    </div>
+
+    <div class="article-body">
+      <h2>Overview</h2>
+      <p>SnapVault is a Python tool that watches for mobile devices connecting to a computer over USB and automatically starts backing up their contents to local storage — no manual copy-paste, no forgetting to back up before a phone gets wiped, lost, or upgraded.</p>
+
+      <h2>Problem</h2>
+      <p>Manual phone backups are easy to skip. Most people plug a phone in, transfer a few files by hand, and forget the rest. The goal was to remove the manual step entirely: connect the device, and the backup happens on its own, offline, without relying on a cloud service.</p>
+
+      <h2>Approach</h2>
+      <p>The tool runs as a lightweight background watcher that polls for newly connected storage devices. When it detects a phone (or other USB storage device) has been mounted, it identifies whether the device has already been backed up recently, then triggers a synchronization pass against a designated backup directory.</p>
+      <p>Concurrent connections are handled explicitly — if more than one device connects around the same time, each is tracked and processed independently so one long-running transfer doesn't block detection of another device.</p>
+
+      <h2>Architecture</h2>
+      <div class="diagram">
+        <div class="diagram-box"><div class="box-title">Device Watcher</div><div class="box-sub">Polls for new USB mounts</div></div>
+        <div class="diagram-connector"></div>
+        <div class="diagram-box"><div class="box-title">Device Registry</div><div class="box-sub">Tracks known / new devices</div></div>
+        <div class="diagram-connector"></div>
+        <div class="diagram-box"><div class="box-title">Sync Engine</div><div class="box-sub">Copies new &amp; changed files</div></div>
+        <div class="diagram-connector"></div>
+        <div class="diagram-box"><div class="box-title">Local Backup Store</div><div class="box-sub">Offline, per-device folders</div></div>
+      </div>
+
+      <h2>Technology</h2>
+      <ul>
+        <li>Python for the watcher, device registry, and sync engine</li>
+        <li>Filesystem polling to detect newly mounted storage volumes</li>
+        <li>Checksum-based comparison to avoid re-copying unchanged files</li>
+      </ul>
+
+      <h2>Implementation</h2>
+      <p>The device watcher runs a polling loop that checks for new mount points at a fixed interval. Once a device is identified, its contents are diffed against the last known backup snapshot for that device (matched by volume identifier), and only new or changed files are copied over — keeping repeat backups fast.</p>
+
+      <div class="code-block">
+<div class="line"><span class="comment"># simplified detection loop</span></div>
+<div class="line">while True:</div>
+<div class="line">    devices = list_mounted_volumes()</div>
+<div class="line">    for device in devices:</div>
+<div class="line">        if device.id not in known_devices:</div>
+<div class="line">            queue_backup(device)</div>
+<div class="line">    sleep(POLL_INTERVAL)</div>
+      </div>
+
+      <h2>Challenges</h2>
+      <p>The trickiest part was reliably distinguishing "just connected" from "still transferring from the last session" — connecting too early can catch a device mid-mount. A short debounce window after first detection solved most of the false starts. Handling multiple simultaneous devices without one slow transfer blocking detection of a second device also required moving sync work onto its own thread per device rather than a single sequential loop.</p>
+
+      <h2>What I Learned</h2>
+      <p>This project was less about security and more about the operational discipline that security tooling also depends on: reliable detection, idempotent operations (safe to re-run without duplicating work), and graceful handling of concurrent events. Those same patterns show up constantly in reconnaissance tooling — watching for new results, avoiding duplicate work, and handling multiple targets at once.</p>
+
+      <h2>Future Improvements</h2>
+      <ul>
+        <li>Optional encryption for backup storage at rest</li>
+        <li>Configurable backup rules (file types, folders to include/exclude)</li>
+        <li>A simple status CLI to show last backup time per device</li>
+      </ul>
+
+      <h2>Source Code</h2>
+      <p><a href="https://github.com/on-nick/SnapVault" target="_blank" rel="noopener" class="btn btn-ghost">View on GitHub ↗</a></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand"><b>Nikhil Bashyal</b> — Cybersecurity Enthusiast · Security Researcher · Python Automation</div>
+      <div class="footer-tag">© 2026 · built for the field, not the demo</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/on-nick" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/nikhil-bashyal" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:bashyalnikhil@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

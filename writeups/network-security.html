@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyzing Network Traffic with Wireshark — Writeups | NIKHIL.SEC</title>
+<meta name="description" content="A practical look at packet inspection and protocol analysis using Wireshark.">
+<link rel="canonical" href="https://example.com/writeups/network-security.html">
+<meta property="og:title" content="Analyzing Network Traffic with Wireshark | NIKHIL.SEC">
+<meta property="og:description" content="A practical look at packet inspection and protocol analysis.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="writeups">
+
+<canvas id="bgcanvas"></canvas>
+<div class="grid-overlay"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo"><span class="dot"></span>NIKHIL<span class="dim">.SEC</span></a>
+    <nav class="links" id="navLinks">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../writeups.html" class="active">Writeups</a>
+      <a href="../research.html">Research</a>
+      <a href="../lab.html">Lab</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../index.html" class="resume-link" target="_blank" rel="noopener">Resume ↗</a>
+    </nav>
+    <a href="../contact.html" class="nav-cta">Contact Me</a>
+    <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">Home</a>
+    <a href="../about.html">About</a>
+    <a href="../projects.html">Projects</a>
+    <a href="../writeups.html" class="active">Writeups</a>
+    <a href="../research.html">Research</a>
+    <a href="../lab.html">Lab</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../index.html" target="_blank" rel="noopener">Resume ↗</a>
+  </div>
+</header>
+
+<main>
+<header class="page-header wrap">
+  <a href="../writeups.html" class="back-link">← Back to Writeups</a>
+  <h1>Analyzing Network Traffic with Wireshark</h1>
+</header>
+
+<section class="section" style="border-top:none; padding-top:48px;">
+  <div class="wrap">
+    <div class="article-meta">
+      <span><b>Category</b> Network Security</span>
+      <span><b>Date</b> Mar 2026</span>
+      <span><b>Reading Time</b> 10 min</span>
+    </div>
+
+    <div class="article-body">
+      <div class="notice-box"><b>Scope note:</b> All packet captures referenced here were taken on a local, isolated lab network under the author's own control.</div>
+
+      <h2>Introduction</h2>
+      <p>Wireshark turns an abstract idea — "the network" — into something you can actually see, packet by packet. This writeup walks through a basic approach to reading a capture: what to look at first, and what patterns are worth flagging.</p>
+
+      <h2>Background</h2>
+      <p>Every conversation between two hosts is really a sequence of packets following a protocol's rules — a TCP handshake, a DNS query and response, an HTTP request layered on top of both. Reading a capture well means reading it at more than one layer at once: transport behavior, then application content.</p>
+
+      <h2>Methodology</h2>
+      <ul>
+        <li>Start with a protocol hierarchy view to see what's actually present in the capture</li>
+        <li>Filter down to a single conversation (by IP or port) before trying to read everything</li>
+        <li>Follow the TCP stream for a request of interest to reconstruct the full exchange</li>
+        <li>Compare timing and sequence patterns against expected protocol behavior</li>
+      </ul>
+
+      <h2>Technical Analysis</h2>
+      <p>A capture filter narrows what's recorded; a display filter narrows what's shown from an existing capture. Both matter for keeping a large capture manageable:</p>
+      <div class="code-block">
+<div class="line"><span class="comment"># display filter: isolate traffic to a single lab host</span></div>
+<div class="line">ip.addr == 192.168.56.10 &amp;&amp; tcp.port == 443</div>
+<div class="line"></div>
+<div class="line"><span class="prompt">$</span> dig lab.target.example</div>
+<div class="line">;; ANSWER SECTION:</div>
+<div class="line">lab.target.example.  300  IN  A  192.168.56.10</div>
+      </div>
+      <p>Following a TCP stream end-to-end shows the full handshake, any retransmissions, and — for unencrypted protocols — the actual application data. For encrypted traffic like HTTPS, the same filtering approach still surfaces useful metadata: timing, packet sizes, and SNI values in the TLS handshake, even without decrypting payload content.</p>
+
+      <h2>Observations</h2>
+      <p>Unusual patterns worth flagging in a lab capture include: repeated retransmissions suggesting instability or interference, unexpected destination ports on known-protocol traffic, and DNS queries to unfamiliar domains that don't match the application under test.</p>
+
+      <h2>Lessons Learned</h2>
+      <p>Reading captures gets faster with repetition, but the discipline that matters most is narrowing scope early — filtering by host and port before trying to interpret payloads. Trying to read an unfiltered capture top to bottom wastes time and buries the signal.</p>
+
+      <h2>Conclusion</h2>
+      <p>Packet-level analysis is a core network security skill that translates directly into better assessments — spotting misconfigurations, understanding real traffic flow, and validating whether a fix actually changed behavior on the wire.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand"><b>Nikhil Bashyal</b> — Cybersecurity Enthusiast · Security Researcher · Python Automation</div>
+      <div class="footer-tag">© 2026 · built for the field, not the demo</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/on-nick" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/nikhil-bashyal" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:bashyalnikhil@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ScopeDork — Project Case Study | NIKHIL.SEC</title>
+<meta name="description" content="ScopeDork — an automated OSINT and reconnaissance tool that generates targeted Google and GitHub dorks for a domain.">
+<link rel="canonical" href="https://example.com/projects/scopedork.html">
+<meta property="og:title" content="ScopeDork — Project Case Study | NIKHIL.SEC">
+<meta property="og:description" content="Automated OSINT and reconnaissance tool that generates targeted Google and GitHub dorks for a domain.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="projects">
+
+<canvas id="bgcanvas"></canvas>
+<div class="grid-overlay"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo"><span class="dot"></span>NIKHIL<span class="dim">.SEC</span></a>
+    <nav class="links" id="navLinks">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../projects.html" class="active">Projects</a>
+      <a href="../writeups.html">Writeups</a>
+      <a href="../research.html">Research</a>
+      <a href="../lab.html">Lab</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../index.html" class="resume-link" target="_blank" rel="noopener">Resume ↗</a>
+    </nav>
+    <a href="../contact.html" class="nav-cta">Contact Me</a>
+    <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">Home</a>
+    <a href="../about.html">About</a>
+    <a href="../projects.html" class="active">Projects</a>
+    <a href="../writeups.html">Writeups</a>
+    <a href="../research.html">Research</a>
+    <a href="../lab.html">Lab</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../index.html" target="_blank" rel="noopener">Resume ↗</a>
+  </div>
+</header>
+
+<main>
+<header class="page-header wrap">
+  <a href="../projects.html" class="back-link">← Back to Projects</a>
+  <div class="eyebrow">Project 02</div>
+  <h1>ScopeDork</h1>
+  <p class="lead">Structured dork generation for faster, more consistent OSINT reconnaissance.</p>
+</header>
+
+<section class="section" style="border-top:none; padding-top:64px;">
+  <div class="wrap">
+    <div class="article-meta">
+      <span><b>Category</b> OSINT / Reconnaissance / Automation</span>
+      <span><b>Status</b> Working prototype</span>
+    </div>
+    <div class="project-tags" style="padding:0; margin-bottom:40px;">
+      <span>Python</span><span>OSINT</span><span>Reconnaissance</span><span>Search Automation</span><span>Google Dorks</span><span>GitHub Dorks</span>
+    </div>
+
+    <div class="article-body">
+      <h2>Overview</h2>
+      <p>ScopeDork automates the early, repetitive part of reconnaissance: building a solid set of Google and GitHub dorks for a target domain. Instead of manually assembling search operators for every engagement, the tool generates a structured, reusable set based on the domain and a handful of common exposure patterns.</p>
+
+      <h2>Problem</h2>
+      <p>Effective dorking depends on covering a wide range of search operator combinations — file types, login pages, exposed configuration files, credentials in code, and more. Doing this by hand for every target is slow and easy to do inconsistently, especially across multiple authorized engagements.</p>
+
+      <h2>Approach</h2>
+      <p>Given a target domain, ScopeDork combines it with a curated library of dork patterns — categorized by what they're looking for (exposed files, admin panels, error messages, potential credentials, API endpoints) — and outputs a ready-to-use list of search queries for both Google and GitHub.</p>
+
+      <h2>Architecture</h2>
+      <div class="diagram">
+        <div class="diagram-box"><div class="box-title">Target Input</div><div class="box-sub">Domain / org name</div></div>
+        <div class="diagram-connector"></div>
+        <div class="diagram-box"><div class="box-title">Pattern Library</div><div class="box-sub">Categorized dork templates</div></div>
+        <div class="diagram-connector"></div>
+        <div class="diagram-box"><div class="box-title">Query Generator</div><div class="box-sub">Merges target + patterns</div></div>
+        <div class="diagram-connector"></div>
+        <div class="diagram-branch">
+          <div class="diagram-branch-col">
+            <div class="diagram-connector"></div>
+            <div class="diagram-box"><div class="box-title">Google Output</div><div class="box-sub">site: / filetype: / inurl:</div></div>
+          </div>
+          <div class="diagram-branch-col">
+            <div class="diagram-connector"></div>
+            <div class="diagram-box"><div class="box-title">GitHub Output</div><div class="box-sub">org: / filename: / secrets</div></div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Technology</h2>
+      <ul>
+        <li>Python for query generation and output formatting</li>
+        <li>A categorized template library for Google and GitHub dork syntax</li>
+        <li>Plain-text and structured output for use in other recon tooling</li>
+      </ul>
+
+      <h2>Implementation</h2>
+      <p>Dork templates are stored as parameterized strings grouped by category (exposed files, admin interfaces, error disclosures, credential leakage, API surface). The generator substitutes the target domain into each template and produces a de-duplicated, categorized list.</p>
+
+      <div class="code-block">
+<div class="line"><span class="comment"># simplified template substitution</span></div>
+<div class="line">templates = load_patterns("exposed_files")</div>
+<div class="line">for pattern in templates:</div>
+<div class="line">    query = pattern.format(domain=target)</div>
+<div class="line">    results.append(query)</div>
+<div class="line"><span class="comment"># site:target.example filetype:env</span></div>
+<div class="line"><span class="comment"># site:target.example filetype:log</span></div>
+      </div>
+
+      <h2>Challenges</h2>
+      <p>Keeping the pattern library useful without becoming noisy was the main challenge — too many low-value queries bury the ones worth checking first. The categorization step (grouping by what a query is actually looking for) made it easier to prioritize which queries to run first during a real engagement.</p>
+
+      <h2>What I Learned</h2>
+      <p>Good reconnaissance tooling is as much about organizing what you already know how to look for as it is about clever automation. Structuring the dork library by intent, rather than as a flat list, made the tool far more useful in practice — and it's a pattern I've carried into other recon scripts since.</p>
+
+      <h2>Future Improvements</h2>
+      <ul>
+        <li>Direct integration with search APIs for automated execution (where terms of service allow)</li>
+        <li>Result de-duplication and basic relevance scoring</li>
+        <li>Export formats for feeding into other recon tools</li>
+      </ul>
+
+      <h2>Source Code</h2>
+      <p><a href="https://github.com/on-nick/ScopeDork" target="_blank" rel="noopener" class="btn btn-ghost">View on GitHub ↗</a></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand"><b>Nikhil Bashyal</b> — Cybersecurity Enthusiast · Security Researcher · Python Automation</div>
+      <div class="footer-tag">© 2026 · built for the field, not the demo</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/on-nick" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/nikhil-bashyal" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:bashyalnikhil@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
